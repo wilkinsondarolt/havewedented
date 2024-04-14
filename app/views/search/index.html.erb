@@ -2,6 +2,14 @@
   <%= simple_form_for(
       :search,
       method: :get,
+      html: {
+        data: {
+          turbo_frame: 'game_list',
+          turbo_action: 'advance',
+          controller: 'form',
+          action: 'input->form#submit'
+        }
+      },
       defaults: {
         input_html: { class: "input" },
         label_html: { class: "label" },
@@ -11,7 +19,7 @@
     )  do |f| %>
     <%= f.input :player, input_html: { autofocus: true, value: @player } %>
     <%= f.input :opponent, value: @opponent, input_html: { value: @opponent } %>
-    <%= f.submit "Search", class: "button is-primary"  %>
+    <%= f.submit "Search", class: "button is-primary", name: "" %>
   <% end %>
 
   <%= turbo_frame_tag "game_list" do %>
