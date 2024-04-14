@@ -1,3 +1,28 @@
+<% game = local_assigns[:game] %>
 
-1
-<%= local_assigns[:game_id] %>
+<div class="box">
+  <div class="columns">
+    <div class="column has-text-left has-text-weight-bold is-bordered">
+      #<%= game['game_id'] %>
+    </div>
+
+    <div class="column has-text-right has-text-weight-bold is-bordered">
+      <%= game['started_at'].to_date.strftime("%d %b %Y") %>
+    </div>
+  </div>
+
+  <div class="columns">
+    <% game['teams'].each do |players| %>
+      <div class="column">
+        <% players.each do |player_info| %>
+          <% player = player_info['player'] %>
+          <% player_classes = player['result'] == 'win' ? 'has-text-success' : 'has-text-danger' %>
+
+          <div class="block <%= player_classes%>">
+            <%= player['name'] %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

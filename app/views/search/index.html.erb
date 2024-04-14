@@ -9,8 +9,8 @@
         wrapper_html: { class: 'field' }
       }
     )  do |f| %>
-    <%= f.input :player, input_html: { autofocus: true } %>
-    <%= f.input :opponent %>
+    <%= f.input :player, input_html: { autofocus: true, value: @player } %>
+    <%= f.input :opponent, value: @opponent, input_html: { value: @opponent } %>
     <%= f.submit "Search", class: "button is-primary"  %>
   <% end %>
 

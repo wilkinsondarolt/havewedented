@@ -1,14 +1,15 @@
 class SearchController < ApplicationController
   def index
-    @games = search_games
+    search_params = search_permitted_params[:search] || {}
+
+    @player = search_params[:player]
+    @opponent = search_params[:opponent]
+    @games = search_games(@player, @opponent)
   end
 
   private
 
-  def search_games
-    search_params = {player: nil, opponent: nil}.merge(search_permitted_params[:search].to_h)
-    search_params.to_h => {player:, opponent:}
-
+  def search_games(player, opponent)
     return [] if player.blank? || opponent.blank?
 
     Aoeworld.instance.games(
