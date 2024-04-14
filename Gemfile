@@ -5,6 +5,7 @@ ruby '3.3.0'
 gem 'bootsnap', require: false
 gem 'bulma-rails', '~> 0.9'
 gem "faraday", "~> 2.9.0"
+gem "font-awesome-sass"
 gem 'importmap-rails', '~> 2.0.1'
 gem 'puma', '~> 6.4.2'
 gem 'rails', '~> 7.1.3'

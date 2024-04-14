@@ -3,6 +3,7 @@
       :search,
       method: :get,
       html: {
+        class: 'block',
         data: {
           turbo_frame: 'game_list',
           turbo_action: 'advance',
@@ -23,6 +24,8 @@
   <% end %>
 
   <%= turbo_frame_tag "game_list" do %>
-    <%= render partial: 'search/game', collection: @games %>
+    <div class="block">
+      <%= render partial: 'search/game', collection: @games %>
+    </div>
   <% end %>
 </main>

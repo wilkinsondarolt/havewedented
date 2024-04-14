@@ -2,7 +2,8 @@ class Aoeworld
   include Singleton
 
   DEFAULT_SEARCH_LEADERBOARD = 'rm_solo'
-  AOE4WORLD_API_URL = 'https://aoe4world.com/api/v0/'
+  AOE4WORLD_URL = 'https://aoe4world.com'
+  AOE4WORLD_API_URL = "#{AOE4WORLD_URL}/api/v0/"
 
   def players(name)
     return [] if name.blank?
