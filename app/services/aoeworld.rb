@@ -7,35 +7,44 @@ class Aoeworld
   def player(id)
     return {} unless id.positive?
 
-    url = "players/#{id}"
+    player_info = Rails.cache.fetch("player_#{id}_data", expires_in: 1.day) do
+      url = "players/#{id}"
+      response = connection.get(url)
 
-    response = connection.get(url)
+      response.success? ? response.body : ""
+    end
 
-    return {} unless response.success?
+    return {} if player_info.empty?
 
-    JSON.parse(response.body)
+    JSON.parse(player_info)
   end
 
   def players(name)
     return [] if name.blank?
 
-    url = "players/search?query=#{name}"
+    players_data = Rails.cache.fetch("players_#{name}_data", expires_in: 1.minute) do
+      url = "players/search?query=#{name}"
+      response = connection.get(url)
 
-    response = connection.get(url)
+      response.success? ? response.body : ""
+    end
 
-    return [] unless response.success?
+    return [] if players_data.empty?
 
-    JSON.parse(response.body)['players']
+    JSON.parse(players_data)['players']
   end
 
   def games(player_id:, opponent_id:)
-    url = "players/#{player_id}/games?opponent_profile_id=#{opponent_id}"
+    games_data = Rails.cache.fetch("player_#{player_id}_opponent_#{opponent_id}_games", expires_in: 1.minute) do
+      url = "players/#{player_id}/games?opponent_profile_id=#{opponent_id}"
+      response = connection.get(url)
 
-    response = connection.get(url)
+      response.success? ? response.body : ""
+    end
 
-    return [] unless response.success?
+    return [] if games_data.empty?
 
-    JSON.parse(response.body)['games']
+    JSON.parse(games_data)['games']
   end
 
   private
