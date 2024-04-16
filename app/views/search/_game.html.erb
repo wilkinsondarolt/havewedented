@@ -14,9 +14,9 @@
     </div>
   </div>
 
-  <div class="columns has-background-white has-text-centered">
-    <% game['teams'].each_with_index do |players, index| %>
-      <% unless index.zero? %>
+  <div class="columns has-background-white has-text-centered is-flex is-vcentered">
+    <% game['teams'].each_with_index do |players, team_index| %>
+      <% unless team_index.zero? %>
         <div class="column">
           <span class="icon">
             <i class="fas fa-x"></i>
