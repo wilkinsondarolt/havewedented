@@ -10,16 +10,20 @@
           controller: 'form',
           action: 'input->form#submit'
         }
-      },
-      defaults: {
-        input_html: { class: "input" },
-        label_html: { class: "label" },
-        required: false,
-        wrapper_html: { class: 'field' }
       }
     )  do |f| %>
-    <%= f.input :player, input_html: { autofocus: true, value: @player } %>
-    <%= f.input :opponent, value: @opponent, input_html: { value: @opponent } %>
+
+    <div class="field">
+      <%= f.label :player, class: "label", required: false%>
+      <%= f.select :player, player_data_to_collection(@player), {}, { data: { controller: "select", select_url_value: players_path }} %>
+    </div>
+
+    <div class="field">
+      <%= f.label :opponent, class: "label", required: false%>
+      <%= f.select :opponent, player_data_to_collection(@opponent), {}, { data: { controller: "select", select_url_value: players_path }} %>
+    </div>
+
+
     <%= f.submit "Search", class: "button is-primary", name: "" %>
   <% end %>
 

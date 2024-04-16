@@ -6,7 +6,7 @@
       <span class="icon">
         <i class="fas fa-magnifying-glass"></i>
       </span>
-      <%= link_to "View game summary", game_url(player_id: @player, game_id: game['game_id']), class: "has-text-black" %>
+      <%= link_to "View game summary", game_url(player: @player, game_id: game['game_id']), class: "has-text-black" %>
     </div>
 
     <div class="column has-text-right has-text-weight-bold">

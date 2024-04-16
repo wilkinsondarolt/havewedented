@@ -1,14 +1,25 @@
 class Aoeworld
   include Singleton
 
-  DEFAULT_SEARCH_LEADERBOARD = 'rm_solo'
   AOE4WORLD_URL = 'https://aoe4world.com'
   AOE4WORLD_API_URL = "#{AOE4WORLD_URL}/api/v0/"
+
+  def player(id)
+    return {} unless id.positive?
+
+    url = "players/#{id}"
+
+    response = connection.get(url)
+
+    return {} unless response.success?
+
+    JSON.parse(response.body)
+  end
 
   def players(name)
     return [] if name.blank?
 
-    url = "players/autocomplete?leaderboard=#{DEFAULT_SEARCH_LEADERBOARD}&query=#{name}"
+    url = "players/search?query=#{name}"
 
     response = connection.get(url)
 
