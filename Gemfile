@@ -20,6 +20,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'dockerfile-rails', '~> 1.6.8'
   gem 'foreman', '~> 0.88.1'
   gem 'rack-mini-profiler', '~> 3.3.0'
   gem 'web-console', '~> 4.2.1'

@@ -95,6 +95,8 @@ GEM
       railties (>= 6.0.0)
     date (3.3.4)
     diff-lcs (1.5.1)
+    dockerfile-rails (1.6.8)
+      rails (>= 3.0.0)
     drb (2.2.1)
     erubi (1.12.0)
     faraday (2.9.0)
@@ -280,6 +282,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   cssbundling-rails (~> 1.4)
+  dockerfile-rails (~> 1.6.8)
   faraday (~> 2.9.0)
   font-awesome-sass (~> 6.5.2)
   foreman (~> 0.88.1)
