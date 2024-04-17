@@ -26,4 +26,5 @@ end
 
 group :test do
   gem 'rspec-rails', '~> 6.1.1'
+  gem 'webmock'
 end
