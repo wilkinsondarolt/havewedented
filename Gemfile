@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '3.3.0'
 
 gem 'bootsnap', require: false
-gem 'bulma-rails', '~> 0.9'
+gem "cssbundling-rails", "~> 1.4"
 gem "faraday", "~> 2.9.0"
 gem "font-awesome-sass", "~> 6.5.2"
 gem 'importmap-rails', '~> 2.0.1'
@@ -20,6 +20,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'foreman', '~> 0.88.1'
   gem 'rack-mini-profiler', '~> 3.3.0'
   gem 'web-console', '~> 4.2.1'
 end

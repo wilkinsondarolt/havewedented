@@ -83,8 +83,6 @@ GEM
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.2.4)
-    bulma-rails (0.9.4)
-      sassc (~> 2.0)
     byebug (11.1.3)
     coderay (1.1.3)
     concurrent-ruby (1.2.3)
@@ -93,6 +91,8 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
+    cssbundling-rails (1.4.0)
+      railties (>= 6.0.0)
     date (3.3.4)
     diff-lcs (1.5.1)
     drb (2.2.0)
@@ -105,6 +105,7 @@ GEM
     ffi (1.16.3)
     font-awesome-sass (6.5.2)
       sassc (~> 2.0)
+    foreman (0.88.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashdiff (1.1.0)
@@ -280,9 +281,10 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  bulma-rails (~> 0.9)
+  cssbundling-rails (~> 1.4)
   faraday (~> 2.9.0)
   font-awesome-sass (~> 6.5.2)
+  foreman (~> 0.88.1)
   importmap-rails (~> 2.0.1)
   pry-byebug (~> 3.10.1)
   puma (~> 6.4.2)
