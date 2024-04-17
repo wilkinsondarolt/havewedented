@@ -4,7 +4,7 @@
   <div class="columns">
     <div class="column has-text-left has-text-weight-bold">
       <span class="icon">
-        <i class="fas fa-magnifying-glass"></i>
+        <i class="fa-solid fa-magnifying-glass"></i>
       </span>
       <%= link_to "View game summary", game_url(player: @player, game_id: game['game_id']), class: "has-text-black" %>
     </div>
@@ -19,7 +19,7 @@
       <% unless team_index.zero? %>
         <div class="column">
           <span class="icon">
-            <i class="fas fa-x"></i>
+            <i class="fa-solid fa-x"></i>
           </span>
         </div>
       <% end %>
