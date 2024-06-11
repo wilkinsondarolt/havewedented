@@ -10,7 +10,7 @@ class SearchController < ApplicationController
   private
 
   def search_games(player, opponent)
-    return [] if player.blank? || opponent.blank?
+    return if player.blank? || opponent.blank?
 
     Aoeworld.instance.games(
       player_id: player,

@@ -28,8 +28,14 @@
   <% end %>
 
   <%= turbo_frame_tag "game_list" do %>
-    <div class="block">
-      <%= render partial: 'search/game', collection: @games %>
-    </div>
+    <% if @games.is_a?(Array) %>
+      <% if @games.any? %>
+        <div class="block">
+          <%= render partial: 'search/game', collection: @games %>
+        </div>
+      <% else %>
+        <%= render partial: 'search/no_result' %>
+      <% end%>
+    <% end%>
   <% end %>
 </main>
